@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container text-center mt-3 mb-5">
+        <h1>Weather Forecasting Web App</h1>
+    </div>
+    <div class="container p-3 bg-info bg-opacity-10 border border-info border rounded-end mt-3 pt-3 pb-3 text-center">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="City"><h2>Enter City Name :</h2></label>
+            <input type="text" name="city">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+
+    </div>
+    <div class="container p-3 bg-info bg-opacity-10 border border-info border rounded-end mt-5 pt-5 pb-5 text-center">
+        <div class="container  border border-info border rounded-end text-center mb-4 mt-0">
+            <h2>Weather Reports of {{data.city}} are:</h2>
+        </div>
+        <div class="city">
+            <h2><strong>City :</strong>  {{data.city}}</h2>
+            <h2><strong>Weather :</strong>  {{data.weather}}</h2>
+            <h2><strong>Icon:</strong>  <img src="http://openweathermap.org/img/wn/{{data.icon}}.png"></h2>
+            <h2><strong>Tempreature : </strong> {{data.celsius_tempreature}}</h2>
+            <h2><strong>Pressure :</strong>  {{data.pressure}}</h2>
+            <h2><strong>Humidity :</strong>  {{data.humidity}}</h2>
+
+        </div>
+      </div>
+{% endblock content %}
